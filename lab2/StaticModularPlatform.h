@@ -3,6 +3,7 @@
 class StaticModularPlatform :
     public ModularPlatform
 {
+public:
     int GetType() { return TypeStaticModularPlatform; };
 };
 

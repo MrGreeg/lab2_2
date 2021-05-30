@@ -1,44 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="EnvironmentDescriptor" Collapsed="true">
-    <Position X="14" Y="0.5" Width="2.25" />
+    <Position X="9.5" Y="0.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAEEAAAAAAAIACAAIAIAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAQEEAAAAAAAIACAAIAIAAAAAAAAIAAAAAAAAAAAAAA=</HashCode>
       <FileName>EnvironmentDescriptor.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BaseCell" Collapsed="true">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAAAQAAAAAAAAAEAAABgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAJAAAAAAAAAAAAAEAAABgAAAAAAA=</HashCode>
       <FileName>BaseCell.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ObstacleCell" Collapsed="true">
     <Position X="3.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAABAAAAAAAAAAAAEEAAAAAAAAAAAA=</HashCode>
       <FileName>ObstacleCell.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="InterestPointCell" Collapsed="true">
     <Position X="1" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAEQAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAEEQAAAAAAAAAAA=</HashCode>
       <FileName>InterestPointCell.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ModularPlatform" Collapsed="true">
     <Position X="8.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAQAIAAAAAAAAABQAAEBAAAJAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAgAAQAIBAAQAAAABBQAAEBAAAqAAAAAIA=</HashCode>
       <FileName>ModularPlatform.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="BaseModule" Collapsed="true">
     <Position X="2" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAQgABQAAAAAAAAAAAAQAAAEAAAIAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAAQgAAQAAIAAABAAAAAQAAEEAAAIAAAAABA=</HashCode>
       <FileName>BaseModule.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -50,35 +50,35 @@
     </TypeIdentifier>
   </Class>
   <Class Name="MobileModularPlatform" Collapsed="true">
-    <Position X="8.25" Y="3.25" Width="1.5" />
+    <Position X="7" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAQEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAAAACAAAAAAAAAAAAAAQEAEAAAAAAAAAA=</HashCode>
       <FileName>MobileModularPlatform.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ControlModule" Collapsed="true">
     <Position X="0.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAgAACAAAAAAAAAAAAAABAQAAAAAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAggAQCAAAAABAAAAAAAABAQAAgAEAIAAgAAAAAAA=</HashCode>
       <FileName>ControlModule.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnergyGeneratorModule" Collapsed="true">
-    <Position X="3.75" Y="4.75" Width="1.5" />
+    <Position X="3.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAQAAEAAAAAAAAAAgA=</HashCode>
       <FileName>EnergyGeneratorModule.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SensorModule" Collapsed="true">
     <Position X="2" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAIAAAAAAAAAAAEAAAAAAAAAAAAAQAAAA=</HashCode>
+      <HashCode>AAAAEAAACAAIIABAgAAAAAAAEAAAAAEAAACAAAQAAAA=</HashCode>
       <FileName>SensorModule.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ControlMobilePlatform" Collapsed="true">
-    <Position X="8.25" Y="4.75" Width="1.5" />
+    <Position X="7" Y="4.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAgAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>ControlMobilePlatform.h</FileName>
@@ -92,23 +92,23 @@
     </TypeIdentifier>
   </Class>
   <Class Name="RobotScoutPlatform" Collapsed="true">
-    <Position X="12.25" Y="3.25" Width="1.5" />
+    <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAEAAAAAAQAACAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>RobotScoutPlatform.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MonitoringCenterPlatform" Collapsed="true">
-    <Position X="10" Y="3.25" Width="1.5" />
+    <Position X="8.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
       <FileName>MonitoringCenterPlatform.h</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="TypeInfo" Collapsed="true">
-    <Position X="14.75" Y="1.75" Width="1.5" />
+    <Position X="10.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAgAAAgAAEBAAAAAAAAAAIQAAAAAAAAACCIAA=</HashCode>
+      <HashCode>AAAAAACAiAAIgAAEBAAAAAAQAAAIQAAEAAAAAACCIAA=</HashCode>
       <FileName>TypeInfo.h</FileName>
     </TypeIdentifier>
   </Enum>

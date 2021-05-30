@@ -7,6 +7,7 @@
 #include "InterestPointCell.h"
 #include "BaseCell.h"
 #include <typeinfo>
+#include <vector>
 
 int randInt(const int from, const int to) {
     if (to == from)
@@ -18,7 +19,10 @@ int randInt(const int from, const int to) {
 
 int main()
 {
-    BaseCell *a = new BaseCell();
+    InterestPointCell a;
+    a.GetCoordX();
+
+    //BaseCell *a = new BaseCell();
     const int size = 10;
     //std::cout << "Hello World!\n";
     EnvironmentDescriptor mainEnvironment(size);

@@ -31,15 +31,18 @@ public:
 	void OffModule() {
 		state = false;
 	};
+	bool isWork() const {
+		return state;
+	}
 	
 	// "Вернуть уровень энергопотребления или энергообеспечения"
-	int EnergyLevel() {
+	int GetEnergyLevel() const {
 		return powerConsumptionLevel;
 	};
 
-	int EnergySupplyLevel() { return 0; };
+	int GetEnergySupplyLevel() const { return 0; };
 	
-	virtual int GetType() { return TypeBaseModule; };
+	virtual int GetType() const { return TypeBaseModule; };
 
 };
 

@@ -22,7 +22,16 @@ public:
 			}
 		}
 	}
-	unsigned int GetSize() {
+
+	BaseCell* GetCell(unsigned int x, unsigned int y) const {
+		if (x > size || y > size) {
+			throw "x or y exceed the maximum value";
+		}
+		else {
+			return map[x][y];
+		}
+	}
+	unsigned int GetSize() const {
 		return size;
 	};
 
@@ -76,12 +85,22 @@ public:
 	};
 
 	int GetTypeCell(unsigned int x, unsigned int y) {
-		return map[x][y]->GetType();
+		if (x > size || y > size) {
+			throw "x or y exceed the maximum value";
+		}
+		else {
+			return map[x][y]->GetType();
+		}
 	}
 
 	void SetCell(unsigned int x, unsigned int y, BaseCell* cell) {
-		delete map[x][y];
-		map[x][y] = cell;
+		if (x > size || y > size) {
+			throw "x or y exceed the maximum value";
+		}
+		else {
+			delete map[x][y];
+			map[x][y] = cell;
+		}
 	}
 
 	void print() {

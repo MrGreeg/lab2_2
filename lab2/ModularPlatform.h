@@ -3,6 +3,8 @@
 #include "BaseCell.h"
 #include "BaseModule.h"
 #include <string>
+#include "vector"
+#include "ControlModule.h"
 
 class ModularPlatform :
     public BaseCell
@@ -10,24 +12,31 @@ class ModularPlatform :
 private:
     std::string description;                // строка описания
     unsigned int powerConsumptionLevel;     // уровень энергопотребления
-    unsigned int numberModules;             // количество слотов для подключения модулей
+    unsigned int maxCountModules;           // количество слотов для подключения модулей
     unsigned int cost;                      // стоимость
-    BaseModule** modules;
+    ControlModule* controlModule;           // указатель на управляющий модуль
+    std::vector<BaseModule*> modules;
 
 public:
-    ModularPlatform() : description(""), powerConsumptionLevel(0), numberModules(0), cost(0) { modules = nullptr; };
-    ModularPlatform(std::string description_, unsigned int powerConsumptionLevel_, unsigned int numberModules_, unsigned int cost_): 
-        description(description_), powerConsumptionLevel(powerConsumptionLevel_), numberModules(numberModules_), cost(cost_) { 
-        modules = new BaseModule * [numberModules];
-        for (int i = 0; i < numberModules; i++) {
-            modules[i] = new BaseModule();
-        }
+    ModularPlatform() : BaseCell(), description(""), powerConsumptionLevel(0), maxCountModules(0), cost(0), controlModule(nullptr) {};
+    ModularPlatform(unsigned int x, unsigned int y, std::string description_, unsigned int powerConsumptionLevel_, unsigned int maxCountModules_, unsigned int cost_):
+        BaseCell(x, y),
+        description(description_), 
+        powerConsumptionLevel(powerConsumptionLevel_), 
+        maxCountModules(maxCountModules_),
+        cost(cost_), controlModule(controlModule) {
     };                     
 
-    int GetType() { return TypeModularPlatform; };
+    int GetType() const { return TypeModularPlatform; };
+
+    void SetControle(ControlModule* controlModule) {
+        ModularPlatform::controlModule = controlModule;
+    };
+
+    ControlModule* GetControle() { return controlModule; }
 
     void OnModule(unsigned int index) {
-        if (index < numberModules && modules[index]->GetType() != TypeBaseModule) {
+        if (index < modules.size()) {
             modules[index]->OnModule();
         }
         else {
@@ -36,7 +45,7 @@ public:
     };
 
     void OffModule(unsigned int index) {
-        if (index < numberModules && modules[index]->GetType() != TypeBaseModule) {
+        if (index < modules.size()) {
             modules[index]->OffModule();
         }
         else {
@@ -44,35 +53,108 @@ public:
         }
     }
 
-    void AddModule(unsigned int index, BaseModule* module) {
-        if (index < numberModules && modules[index]->GetType() == TypeBaseModule) {
+    void AddModule(BaseModule* module) {
+        if (modules.size() < maxCountModules) {
             if (this->GetType() == TypeControlMobilePlatform || this->GetType() == TypeControlStaticPlatform) {
-                modules[index] == module;
+                modules.push_back(module);
             }
             else {
                 throw "Управляющий модуль может быть установлен только на управляющую платформу!";
             }
         }
         else {
-            throw "Слот уже содержит модуль или индекс слишком большой";
+            throw "Отсутствует свободный слот";
         }
     }
 
     void DelModule(unsigned int index) {
-        if (index < numberModules && modules[index]->GetType() != TypeBaseModule) {
+        if (index < modules.size()) {
             delete modules[index];
-            modules[index] = new BaseModule();
+            modules.erase(modules.begin() + index);
         }
         else {
-            throw "Слот не содержит модуль или индекс слишком большой";
+            throw "Индекс слишком большой";
         }
     }
 
     ~ModularPlatform() {
-        for (int i = 0; i < numberModules; i++) {
+        for (int i = 0; i < modules.size(); i++) {
             delete modules[i];
         }
-        delete[] modules;
+        modules.clear();
     }
+
+    ModularPlatform(const ModularPlatform& object) {	// Копирующий конструктор
+        description = object.description;                // строка описания
+        powerConsumptionLevel = object.powerConsumptionLevel;     // уровень энергопотребления
+        maxCountModules = object.maxCountModules;             // количество слотов для подключения модулей
+        cost = object.cost;                      // стоимость
+        controlModule = object.controlModule;
+
+        if (object.modules.size()) {
+            for (int i = 0; i < object.modules.size(); i++) {
+                modules.push_back(object.modules[i]);
+            }
+        }
+    };
+
+    ModularPlatform(ModularPlatform&& object) :                 // перемещающий конструктор
+        description(object.description),                        // строка описания
+        powerConsumptionLevel(object.powerConsumptionLevel),    // уровень энергопотребления
+        maxCountModules(object.maxCountModules),                // количество слотов для подключения модулей
+        cost(object.cost),
+        modules(object.modules),
+        controlModule(object.controlModule)
+    {
+        object.description = "";
+        object.powerConsumptionLevel = 0;
+        object.maxCountModules = 0;
+        object.cost = 0;
+        controlModule = nullptr;
+        object.modules.clear();
+    };
+
+    ModularPlatform& operator = (const ModularPlatform& object) {     // копирующее присваивание
+        if (this != &object) { // проверка  a = a
+            for (int i = 0; i < modules.size(); i++) {
+                delete modules[i];
+            }
+            modules.clear();
+            description = object.description;                // строка описания
+            powerConsumptionLevel = object.powerConsumptionLevel;     // уровень энергопотребления
+            maxCountModules = object.maxCountModules;             // количество слотов для подключения модулей
+            cost = object.cost;                      // стоимость
+            controlModule = object.controlModule;
+            for (int i = 0; i < object.modules.size(); i++) {
+                modules.push_back(object.modules[i]);
+            }
+        }
+        return *this;
+    };
+
+    ModularPlatform& operator = (ModularPlatform&& object) {          // перемещающее присваивание
+        if (this != &object) { // проверка  a = a
+            for (int i = 0; i < modules.size(); i++) {
+                delete modules[i];
+            }
+            modules.clear();
+            description = object.description;                // строка описания
+            powerConsumptionLevel = object.powerConsumptionLevel;     // уровень энергопотребления
+            maxCountModules = object.maxCountModules;             // количество слотов для подключения модулей
+            cost = object.cost;                      // стоимость
+            modules = object.modules;
+            controlModule = object.controlModule;
+
+            object.description = "";
+            object.powerConsumptionLevel = 0;
+            object.maxCountModules = 0;
+            object.cost = 0;
+            object.controlModule = nullptr;
+            object.modules.clear();
+        }
+        return *this;
+    };
+
+    
 };
 

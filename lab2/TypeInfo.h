@@ -17,3 +17,11 @@ enum TypeInfo
 	TypeSensorModule,
 	TypeEnergyGeneratorModule
 };
+
+enum Direction
+{
+	North,			// направление север
+	West,			// направление восток
+	South,			// направление юг
+	East			// направление запад
+};

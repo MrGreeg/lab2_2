@@ -1,5 +1,8 @@
 #pragma once
 #include "StaticModularPlatform.h"
+class EnvironmentDescriptor;
+class RobotScoutPlatform;
+
 class ControlStaticPlatform :
     public StaticModularPlatform
 {
@@ -9,10 +12,9 @@ public:
         return TypeControlStaticPlatform;
     }
 
-    BaseCell* GetInfoEnviromentRobot();
+    EnvironmentDescriptor* GetInfoEnviromentRobot(RobotScoutPlatform* robot);
 
-    void MoveRobot() {
-        
-    };
+    void MoveRobot(RobotScoutPlatform* robot, unsigned int direction, unsigned int count);
+
 };
 

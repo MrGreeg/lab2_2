@@ -10,7 +10,7 @@ public:
     EnergyGeneratorModule(bool state, unsigned int cost, unsigned int energySupplyLevel) :
         BaseModule(0, state, 0, cost), energySupplyLevel(energySupplyLevel) {};
 
-    int GetType() { return TypeEnergyGeneratorModule; };
-    int EnergySupplyLevel() { return energySupplyLevel; }
+    int GetType() const { return TypeEnergyGeneratorModule; };
+    int GetEnergySupplyLevel() const { return energySupplyLevel; }
 };
 
